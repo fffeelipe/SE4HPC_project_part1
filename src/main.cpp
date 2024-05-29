@@ -22,23 +22,25 @@ int main() {
     //std::cout << "Welcome to the first part of the project!" << std::endl;
 
     std::vector<std::vector<int>> A = {
-            {100, 2, 3},
+            {1, 2, 3},
+            {1, 2, 3},
             {4, 5, 6}
     };
     std::vector<std::vector<int>> B = {
-            {7, 8},
-            {9, 10},
-            {11, 12}
+            {7, 8,8},
+            {7, 8,8},
+            {9, 10,87}
     };
-    std::vector<std::vector<int>> C(2, std::vector<int>(2, 0));
+    std::vector<std::vector<int>> C(3, std::vector<int>(3, 0));
 
-    multiplyMatricesWithoutErrors(A, B, C, 2, 3, 2);
+    multiplyMatricesWithoutErrors(A, B, C, A.size(), A[1].size(), B.size());
 
     for(auto r: C){
+        cout<<"{";
         for(auto c: r){
-            cout<<c<<" ";
+            cout<<c<<", ";
         }
-        cout<<"\n";
+        cout<<"},\n";
     }
 
     return 0;
