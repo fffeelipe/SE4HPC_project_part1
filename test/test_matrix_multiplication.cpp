@@ -30,6 +30,7 @@ TEST(MatrixMultiplicationTest, TestMultiplyMatrices) {
     ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
 }
 
+// generic squared matrix multiplication 2x2
 TEST(MatrixMultiplicationTest, TestMultiplyMatrices_2x2) {
     std::vector<std::vector<int>> A = {
             {1, 2},
@@ -52,6 +53,7 @@ TEST(MatrixMultiplicationTest, TestMultiplyMatrices_2x2) {
     ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
 }
 
+// generic squared matrix multiplication 3x3
 TEST(MatrixMultiplicationTest, TestMultiplyMatrices_3x3) {
     std::vector<std::vector<int>> A = {
             {1, 2, 3},
@@ -76,6 +78,7 @@ TEST(MatrixMultiplicationTest, TestMultiplyMatrices_3x3) {
     ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
 }
 
+// generic squared matrix multiplication 4x4
 TEST(MatrixMultiplicationTest, TestMultiplyMatrices_4x4) {
     std::vector<std::vector<int>> A = {
             {1, 2, 3, 234},
@@ -104,7 +107,7 @@ TEST(MatrixMultiplicationTest, TestMultiplyMatrices_4x4) {
     ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
 }
 
-
+// a 1x1 matrix multiplied by a 1x1 matrix should behave like regular numbers
 TEST(MatrixMultiplicationTest, TestMultiplyMatrices_1x1) {
     std::vector<std::vector<int>> A = {
             {1}
@@ -123,6 +126,7 @@ TEST(MatrixMultiplicationTest, TestMultiplyMatrices_1x1) {
     ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
 }
 
+// a 1x1 matrix multiplied by a 1x1 matrix should behave like regular numbers
 TEST(MatrixMultiplicationTest, TestMultiplyMatrices_1x1_0) {
     std::vector<std::vector<int>> A = {
             {0}
@@ -140,6 +144,8 @@ TEST(MatrixMultiplicationTest, TestMultiplyMatrices_1x1_0) {
 
     ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
 }
+
+//matrix multiplication with an identity matrix should return the original matrix
 TEST(MatrixMultiplicationTest, TestMultiplyMatrices_4x4_1L) {
     std::vector<std::vector<int>> A = {
             {1, 1, 1, 1},
@@ -157,17 +163,10 @@ TEST(MatrixMultiplicationTest, TestMultiplyMatrices_4x4_1L) {
     std::vector<std::vector<int>> C(A.size(), std::vector<int>(B[0].size(), 0));
     multiplyMatrices(A, B, C, A.size(), A[0].size(), B[0].size());
 
-    std::vector<std::vector<int>> expected = {
-            {1, 1, 1, 1},
-            {1, 1, 1, 1},
-            {1, 1, 1, 1},
-            {1, 1, 1, 1},
-    };
-
-    ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
+    ASSERT_EQ(C, A) << "Matrix multiplication test failed! :(((()";
 }
 
-
+// a Matrix 4x1 multiplied by a matrix 1x4 should return a matrix of size 4x4
 TEST(MatrixMultiplicationTest, TestMultiplyMatrices_4x1_1L) {
         std::vector<std::vector<int>> B = {
                 {1, 1, 1, 1}
@@ -192,6 +191,8 @@ TEST(MatrixMultiplicationTest, TestMultiplyMatrices_4x1_1L) {
     ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
 }
 
+
+// a Matrix 1x4 multiplied by a matrix 4x1 should return a matrix of size 1x1
 TEST(MatrixMultiplicationTest, TestMultiplyMatrices_1x4_1L) {
     std::vector<std::vector<int>> A = {
             {1, 1, 1, 1}
