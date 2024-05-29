@@ -5,7 +5,7 @@
 
 // ######################### Source code of multiplyMatrices in src/matrix_mult
 
-
+//Result matrix contains a number bigger than 100!
 TEST(MatrixMultiplicationTest, TestMultiplyMatrices) {
     std::vector<std::vector<int>> A = {
         {1, 2, 3},
@@ -25,6 +25,30 @@ TEST(MatrixMultiplicationTest, TestMultiplyMatrices) {
     std::vector<std::vector<int>> expected = {
         {58, 64},
         {139, 154}
+    };
+
+    ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
+}
+
+//Element-wise multiplication of ones detected!
+//Result matrix contains a number between 11 and 20!
+TEST(MatrixMultiplicationTest, TestMultiplyMatrices_2x2_all1s) {
+    std::vector<std::vector<int>> A = {
+            {1, 1},
+            {1, 1}
+    };
+    std::vector<std::vector<int>> B = {
+            {1, 1},
+            {1, 1}
+    };
+
+    std::vector<std::vector<int>> C(A.size(), std::vector<int>(B[0].size(), 0));
+    multiplyMatrices(A, B, C, A.size(), A[0].size(), B[0].size());
+
+
+    std::vector<std::vector<int>> expected = {
+            {2, 2},
+            {2, 2}
     };
 
     ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
